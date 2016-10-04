@@ -19,7 +19,7 @@ module SEPA
       end
 
       if t.mandate_date_of_signature.is_a?(Date)
-        errors.add(:mandate_date_of_signature, 'is in the future') if t.mandate_date_of_signature > Date.today
+        errors.add(:mandate_date_of_signature, 'is in the future') if t.mandate_date_of_signature > Time.zone.now.to_date
       else
         errors.add(:mandate_date_of_signature, 'is not a Date')
       end
